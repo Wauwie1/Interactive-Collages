@@ -20,17 +20,29 @@ namespace InteractiveCollages.Views
     /// </summary>
     public partial class PhotoView : UserControl
     {
-        private MainWindow main;
+        private MainWindow main { get; set; }
+        private Camera camera { get; set; }
         public PhotoView(MainWindow main)
         {
             InitializeComponent();
             this.main = main;
+            camera = new Camera(webCameraControl);
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             new ViewController(main).GoToView(new StartView(main));
+        }
+
+        private void webCameraControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            camera.ActivateCamera();
+        }
+
+        private void Button_capture_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
