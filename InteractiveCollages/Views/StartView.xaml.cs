@@ -12,16 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using InteractiveCollages.Views;
 
-namespace InteractiveCollages
+namespace InteractiveCollages.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for StartView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StartView : UserControl
     {
-        public MainWindow()
+        public StartView()
         {
             InitializeComponent();
         }

@@ -4,9 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InteractiveCollages"
+        xmlns:views="clr-namespace:InteractiveCollages.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Interactive" Height="1080" Width="1920" WindowState="Maximized" WindowStyle="None" Background="Black"  >
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1080px"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Element for displaying views-->
+        <ContentControl Content="{Binding}" Grid.Column="1"/>
     </Grid>
 </Window>
