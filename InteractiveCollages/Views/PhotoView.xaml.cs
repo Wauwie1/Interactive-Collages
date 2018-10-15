@@ -65,9 +65,10 @@ namespace InteractiveCollages.Views
             //Freezes the camera and show preview of photo
             //Shows taken picture
             Bitmap preview = new Bitmap(@"../../Resources/temp/temp.png");
+            preview.Dispose();
             //Image_preview.Source = Photo.AsBitmapImage(preview);
             Image_preview.Source = GreenRemover.RemoveGreen();
-            preview.Dispose();
+            
 
             //Changes button
             ButtonCapture.Content = new BitmapImage(new Uri(@"../../Resources/UI/Button_opnieuw.png", UriKind.Relative));

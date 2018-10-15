@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Color = System.Windows.Media.Color;
@@ -51,9 +52,36 @@ namespace InteractiveCollages
 
                 }
             }
+            SaveTemp(@"../../Resources/temp/temp.png", outputA.Clone());
 
-            
             return outputA;
+        }
+
+        static void SaveTemp(string filename, BitmapSource image)
+        {
+            
+            if (File.Exists(@"../../Resources/temp/temp.png"))
+            {
+                try
+                {
+                    File.Delete(@"../../Resources/temp/temp.png");
+                }
+                catch (IOException e)
+                {
+                    Console.WriteLine(e);
+                }
+
+
+            }
+             if (filename != string.Empty)
+            {
+                using (FileStream stream = new FileStream(filename, FileMode.Create))
+                {
+                    PngBitmapEncoder encoder = new PngBitmapEncoder();
+                    encoder.Frames.Add(BitmapFrame.Create(image));
+                    encoder.Save(stream);
+                }
+            }
         }
     }
 }

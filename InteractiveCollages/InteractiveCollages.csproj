@@ -63,6 +63,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Camera.cs" />
+    <Compile Include="CollageMaker.cs" />
     <Compile Include="GreenRemover.cs" />
     <Compile Include="Photo.cs" />
     <Compile Include="ViewController.cs" />
@@ -157,6 +158,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Collages\IMG_0001.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UI\Button_delen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UI\Button_nieuw.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

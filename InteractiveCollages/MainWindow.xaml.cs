@@ -25,6 +25,7 @@ namespace InteractiveCollages
         {
             InitializeComponent();
             new ViewController(this).GoToView(new StartView(this));
+
           
         }
 
