@@ -5,8 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InteractiveCollages.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="720" d:DesignWidth="720" Background="Gray">
+             d:DesignHeight="720" d:DesignWidth="720" Background="Gray" HorizontalAlignment="Center" VerticalAlignment="Center">
     <Grid>
-            <Button Content="test" Click="Button_Click"></Button>
+            
+        <Image Source="../Resources/UI/Backgrounds/Background_photo.png" Grid.RowSpan="2" Grid.ColumnSpan="2"></Image>
+        <Image Source="../Resources/UI/PNG/flower.png" Width="283" Margin="377,178,60,-178"></Image>
     </Grid>
 </UserControl>

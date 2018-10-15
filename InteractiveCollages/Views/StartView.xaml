@@ -33,7 +33,7 @@
             <ColumnDefinition Width="160px"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Image ></Image>
+
 
         <Image Source="../Resources/UI/Backgrounds/Background_start.png" Grid.RowSpan="2" Grid.ColumnSpan="2"></Image>
         <!--Controls-->

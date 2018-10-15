@@ -116,10 +116,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\UI\Backgrounds\Background_start.png" />
     <Resource Include="Resources\UI\Button_start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UI\Backgrounds\Background_photo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UI\PNG\flower.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
