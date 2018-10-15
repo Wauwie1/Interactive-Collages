@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,10 +23,13 @@ namespace InteractiveCollages.Views
     {
         private MainWindow main { get; set; }
         private Camera camera { get; set; }
+
+        private bool inPreview { get; set; }
         public PhotoView(MainWindow main)
         {
             InitializeComponent();
             this.main = main;
+            inPreview = false;
             camera = new Camera(webCameraControl);
 
         }
@@ -42,7 +46,47 @@ namespace InteractiveCollages.Views
 
         private void Button_capture_Click(object sender, RoutedEventArgs e)
         {
+            if (!inPreview)
+            {
+                Capture();
 
+            }
+            else if (inPreview)
+            {
+                ResetCamera();
+            }
+            
+        }
+
+        private void Capture()
+        {
+            //Takes Photo
+            camera.Capture();
+            //Freezes the camera and show preview of photo
+            //Shows taken picture
+            Bitmap preview = new Bitmap(@"../../Resources/temp/temp.png");
+            Image_preview.Source = Photo.AsBitmapImage(preview);
+            preview.Dispose();
+
+            //Changes button
+            ButtonCapture.Content = new BitmapImage(new Uri(@"../../Resources/UI/Button_opnieuw.png", UriKind.Relative));
+
+            ImageTevreden.Visibility = Visibility.Visible;
+            inPreview = true;
+        }
+
+        private void ResetCamera()
+        {
+            //Resets the camera
+            camera.Reset();
+
+            //Disables and hides the preview
+            Image_preview.Source = null;
+            inPreview = false;
+
+            //Returns buttons and labels to their original state
+            ButtonCapture.Content = new BitmapImage(new Uri(@"../../Resources/UI/Button_makePhoto.png", UriKind.Relative));
+            ImageTevreden.Visibility = Visibility.Hidden;
         }
     }
 }

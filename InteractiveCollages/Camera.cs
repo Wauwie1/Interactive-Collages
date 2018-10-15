@@ -26,7 +26,6 @@ namespace InteractiveCollages
     class Camera
     {
         //Fields
-        DispatcherTimer starttimer = new DispatcherTimer();
 
         private bool inPreview = false;
         private BitmapImage takenPhoto;
@@ -50,9 +49,7 @@ namespace InteractiveCollages
             webCameraControl = webcam;
 
             //Sets timer
-            starttimer.Tick += new EventHandler(starttimer_Tick);
-            starttimer.Interval = new TimeSpan(0, 0, 3);
-            //starttimer.Start();
+            
         }
 
         //Custom methods
@@ -68,14 +65,20 @@ namespace InteractiveCollages
         {
             //Takes picture and converts it to a WriteableBitmap
             Bitmap photoBitmap = webCameraControl.GetCurrentImage();
-            BitmapImage photoImage = BitmapToImageSource(photoBitmap);
-            takenPhoto = photoImage;
-            WriteableBitmap photoWriteable = new WriteableBitmap(photoImage);
 
+            
 
             if (File.Exists(@"../../Resources/temp/temp.png"))
             {
-                File.Delete(@"../../Resources/temp/temp.png");
+                try
+                {
+                    File.Delete(@"../../Resources/temp/temp.png");
+                }
+                catch (IOException e)
+                {
+                    Console.WriteLine(e);
+                }
+                
 
             }
 
@@ -87,7 +90,7 @@ namespace InteractiveCollages
 
             //Stops and hides camera
             webCameraControl.StopCapture();
-            webCameraControl.Visibility = System.Windows.Visibility.Hidden;
+            webCameraControl.Visibility = Visibility.Hidden;
 
         }
 
@@ -97,28 +100,6 @@ namespace InteractiveCollages
             webCameraControl.Visibility = Visibility.Visible;
         }
 
-        private BitmapImage BitmapToImageSource(Bitmap bitmap)
-        {
-            using (MemoryStream memory = new MemoryStream())
-            {
-                bitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Bmp);
-                memory.Position = 0;
-                BitmapImage bitmapimage = new BitmapImage();
-                bitmapimage.BeginInit();
-                bitmapimage.StreamSource = memory;
-                bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
-                bitmapimage.EndInit();
-
-                return bitmapimage;
-            }
-        }
-
-        //Events
-        private void starttimer_Tick(object sender, EventArgs e)
-        {
-            ActivateCamera();
-            starttimer.Stop();
-        }
 
     }
 }

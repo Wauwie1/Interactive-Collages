@@ -48,7 +48,10 @@ namespace InteractiveCollages
         //WriteableBitmap conversions
         public static WriteableBitmap AsWriteableBitmap(Bitmap bitmap)
         {
-            throw new NotImplementedException();
+            BitmapImage bitmapImage = AsBitmapImage(bitmap);
+            WriteableBitmap writeableBitmap = AsWriteableBitmap(bitmapImage);
+
+            return writeableBitmap;
         }
         public static WriteableBitmap AsWriteableBitmap(BitmapImage bitmapImage)
         {

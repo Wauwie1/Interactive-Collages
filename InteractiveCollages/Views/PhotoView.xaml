@@ -11,10 +11,11 @@
 
         <Image Source="../Resources/UI/Backgrounds/Background_photo.png" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
         <!--Controls-->
-        <wpf:WebCameraControl x:Name="webCameraControl"  Loaded="webCameraControl_Loaded"  Width="400" Height="400"/>
+        <wpf:WebCameraControl x:Name="webCameraControl"  Loaded="webCameraControl_Loaded"  Width="400" Height="300"/>
         <Image x:Name="Image_preview" Width="400" Height="400" Opacity="100" />
         <Image Source="../Resources/UI/PNG/flower.png" Margin="48,44,461,527"/>
-        <Button x:Name="ButtonCapture" Click="Button_capture_Click" Height="92" RenderTransformOrigin="0.5,0.5" Margin="84,595,117,33">
+        <Image x:Name="ImageTevreden" Source="../Resources/UI/Text_tevreden.png" Width="341" Height="92" Visibility="Hidden" Margin="242,44,136,584"/>
+        <Button x:Name="ButtonCapture" Click="Button_capture_Click" Height="92" Width="360" RenderTransformOrigin="0.5,0.5" Margin="84,595,117,33">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -23,12 +24,55 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border>
+                                    <Image Source="{TemplateBinding Content}" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Content">
+                        <Setter.Value>
+                            <BitmapImage UriSource="../Resources/UI/Button_makePhoto.png"/>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+           
+        </Button>
 
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="../Resources/UI/Button_makePhoto.png" Width="360" Height="92"/>
-                </ControlTemplate>
-            </Button.Template>
+        <Button x:Name="ButtonContinue"  Height="92" Width="360" RenderTransformOrigin="0.5,0.5" Margin="84,595,117,33">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border>
+                                    <Image Source="{TemplateBinding Content}" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Content">
+                        <Setter.Value>
+                            <BitmapImage UriSource="../Resources/UI/Button_verder.png"/>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+
         </Button>
     </Grid>
 
