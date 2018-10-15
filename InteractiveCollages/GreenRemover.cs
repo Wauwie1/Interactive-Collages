@@ -24,7 +24,7 @@ namespace InteractiveCollages
 
             WriteableBitmap outputA = new WriteableBitmap(Convert.ToInt32(input.PixelWidth), Convert.ToInt32(input.PixelHeight), 96, 96, PixelFormats.Bgra32, null);
 
-            // Iterate over all piels from top to bottom...
+            // Iterate over all pixels from top to bottom...
             for (int y = 0; y < Convert.ToInt32(input.PixelHeight); y++)
             {
                 // ...and from left to right
