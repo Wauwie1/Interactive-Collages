@@ -20,9 +20,16 @@ namespace InteractiveCollages.Views
     /// </summary>
     public partial class StartView : UserControl
     {
-        public StartView()
+        private MainWindow main;
+        public StartView(MainWindow main)
         {
             InitializeComponent();
+            this.main = main;
+        }
+
+        private void Button_start_Click(object sender, RoutedEventArgs e)
+        {
+            new ViewController(main).GoToView(new PhotoView(main));
         }
     }
 }

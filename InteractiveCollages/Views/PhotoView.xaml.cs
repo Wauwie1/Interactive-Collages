@@ -12,21 +12,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using InteractiveCollages.Views;
 
-namespace InteractiveCollages
+namespace InteractiveCollages.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PhotoView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PhotoView : UserControl
     {
-        public MainWindow()
+        private MainWindow main;
+        public PhotoView(MainWindow main)
         {
             InitializeComponent();
-            new ViewController(this).GoToView(new StartView(this));
-          
+            this.main = main;
+
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            new ViewController(main).GoToView(new StartView(main));
+        }
     }
 }

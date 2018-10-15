@@ -6,15 +6,10 @@
         xmlns:local="clr-namespace:InteractiveCollages"
         xmlns:views="clr-namespace:InteractiveCollages.Views"
         mc:Ignorable="d"
-        Title="Interactive" Height="1080" Width="1920" WindowState="Maximized" WindowStyle="None" Background="Black"  >
+        Title="Interactive" Height="720" Width="1280" WindowState="Maximized" WindowStyle="None" Background="Black" ResizeMode="NoResize"  >
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1080px"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-
+        
         <!--Element for displaying views-->
-        <ContentControl Content="{Binding}" Grid.Column="1"/>
+        <ContentControl Content="{Binding}" Width="720"/>
     </Grid>
 </Window>

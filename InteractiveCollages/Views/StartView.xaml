@@ -5,8 +5,53 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InteractiveCollages.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="1080" d:DesignWidth="1080">
+             d:DesignHeight="720" d:DesignWidth="720">
+    <!--Animations-->
+    <UserControl.Resources>
+        <Storyboard x:Key="Button_float" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ButtonStart">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.0" Value="-5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.0" Value="5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4.0" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Button_float}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
     <Grid>
-            
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.7*" />
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160px"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Image ></Image>
+
+        <Image Source="../Resources/UI/Backgrounds/Background_start.png" Grid.RowSpan="2" Grid.ColumnSpan="2"></Image>
+        <!--Controls-->
+        <Button x:Name="ButtonStart" Click="Button_start_Click" RenderTransformOrigin="0.5,0.5" Width="131" Height="46" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="../Resources/UI/Button_start.png" Width="131" Height="92"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </UserControl>
