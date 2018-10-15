@@ -94,7 +94,8 @@ namespace InteractiveCollages.Views
 
         private void ButtonContinue_Click(object sender, RoutedEventArgs e)
         {
-            new ViewController(main).GoToView(new StartView(main));
+            main.DataContext = new CollageView(main);
+            //new ViewController(main).GoToView(new CollageView(main));
         }
     }
 }

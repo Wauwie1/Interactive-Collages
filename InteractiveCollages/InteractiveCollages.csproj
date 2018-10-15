@@ -66,6 +66,9 @@
     <Compile Include="GreenRemover.cs" />
     <Compile Include="Photo.cs" />
     <Compile Include="ViewController.cs" />
+    <Compile Include="Views\CollageView.xaml.cs">
+      <DependentUpon>CollageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PhotoView.xaml.cs">
       <DependentUpon>PhotoView.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\CollageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PhotoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -120,11 +127,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Resources\temp\temp.png" />
+    <Resource Include="Resources\UI\Backgrounds\Background_collage.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\temp\temp.png" />
     <Resource Include="Resources\UI\Backgrounds\Background_photo.png" />
     <Resource Include="Resources\UI\Backgrounds\Background_start.png" />
     <Resource Include="Resources\UI\Button_makePhoto.png" />
@@ -135,6 +142,21 @@
     <Resource Include="Resources\UI\Button_opnieuw.png" />
     <Resource Include="Resources\UI\Button_verder.png" />
     <Resource Include="Resources\UI\Text_tevreden.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Collages\IMG_4636.jpeg" />
+    <Resource Include="Resources\Collages\IMG_5095.jpeg" />
+    <Resource Include="Resources\Collages\IMG_5287.jpeg" />
+    <Resource Include="Resources\Collages\IMG_5344.jpeg" />
+    <Resource Include="Resources\Collages\IMG_5379.jpeg" />
+    <Resource Include="Resources\Collages\IMG_6954.jpeg" />
+    <Resource Include="Resources\Collages\IMG_7171.jpeg" />
+    <Resource Include="Resources\Collages\IMG_7611.jpeg" />
+    <Resource Include="Resources\Collages\IMG_7616.jpeg" />
+    <Resource Include="Resources\Collages\IMG_7617.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Collages\IMG_0001.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

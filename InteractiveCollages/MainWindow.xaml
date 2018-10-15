@@ -10,6 +10,6 @@
     <Grid>
         
         <!--Element for displaying views-->
-        <ContentControl Content="{Binding}" Width="720"/>
+        <ContentControl x:Name="ViewControl" Content="{Binding}" Width="720" Height="720"/>
     </Grid>
 </Window>

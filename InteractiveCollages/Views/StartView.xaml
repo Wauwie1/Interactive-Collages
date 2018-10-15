@@ -37,7 +37,7 @@
 
         <Image Source="../Resources/UI/Backgrounds/Background_start.png" Grid.RowSpan="2" Grid.ColumnSpan="2"></Image>
         <!--Controls-->
-        <Button x:Name="ButtonStart" Click="Button_start_Click" RenderTransformOrigin="0.5,0.5" Width="131" Height="46" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Button x:Name="ButtonStart" Click="Button_start_Click" RenderTransformOrigin="0.5,0.5" Width="131" Height="46" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,24,0,0">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
