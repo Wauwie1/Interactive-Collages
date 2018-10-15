@@ -65,13 +65,15 @@ namespace InteractiveCollages.Views
             //Freezes the camera and show preview of photo
             //Shows taken picture
             Bitmap preview = new Bitmap(@"../../Resources/temp/temp.png");
-            Image_preview.Source = Photo.AsBitmapImage(preview);
+            //Image_preview.Source = Photo.AsBitmapImage(preview);
+            Image_preview.Source = GreenRemover.RemoveGreen();
             preview.Dispose();
 
             //Changes button
             ButtonCapture.Content = new BitmapImage(new Uri(@"../../Resources/UI/Button_opnieuw.png", UriKind.Relative));
 
             ImageTevreden.Visibility = Visibility.Visible;
+            ButtonContinue.Visibility = Visibility.Visible;
             inPreview = true;
         }
 
@@ -87,6 +89,12 @@ namespace InteractiveCollages.Views
             //Returns buttons and labels to their original state
             ButtonCapture.Content = new BitmapImage(new Uri(@"../../Resources/UI/Button_makePhoto.png", UriKind.Relative));
             ImageTevreden.Visibility = Visibility.Hidden;
+            ButtonContinue.Visibility = Visibility.Hidden;
+        }
+
+        private void ButtonContinue_Click(object sender, RoutedEventArgs e)
+        {
+            new ViewController(main).GoToView(new StartView(main));
         }
     }
 }
