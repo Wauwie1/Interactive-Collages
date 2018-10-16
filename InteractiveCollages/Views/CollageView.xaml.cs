@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,9 +39,11 @@ namespace InteractiveCollages.Views
         private void RandomCollage()
         {
             //Refresh user photo
-            string userPath = "../../Resources/temp/temp.png";
-            Bitmap userBitmap = new Bitmap(userPath);
-            ImageUser.Source = Photo.AsBitmapImage(userBitmap);
+            
+            string path =  Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            var image = new BitmapImage(new Uri(path + "\\Resources\\temp\\temp.png"));
+            //WriteableBitmap userWriteableBitmap = Photo.AsWriteableBitmap(userBitmap);
+            ImageUser.Source = image;
 
             //Pick random collage
             string randomPath = CollageMaker.GetRandomCollage();
