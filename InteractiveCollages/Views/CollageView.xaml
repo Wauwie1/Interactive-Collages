@@ -9,9 +9,9 @@
     <Grid >
         <Image Source="../Resources/UI/Backgrounds/Background_collage.png" Grid.RowSpan="2" Grid.ColumnSpan="2" Height="720"/>
         <Image x:Name="ImageCollage" Source="../Resources/Collages/IMG_0001.jpeg" Width="500" Height="500"/>
-        <Image x:Name="ImageUser" Source="../Resources/temp/temp.png" Width="350" Height="350"/>
+        <Image x:Name="ImageUser" Source="../Resources/temp/temp.png" Width="350" Height="350" Margin="185,305,185,65"/>
 
-        <Button x:Name="ButtonShare" Click="ButtonShare_OnClick" RenderTransformOrigin="0.5,0.5" Width="131"  Margin="493,650,96,38">
+        <Button x:Name="ButtonShare" Click="ButtonShare_OnClick" RenderTransformOrigin="0.5,0.5" Width="131"  Margin="310,655,279,33">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -23,12 +23,12 @@
 
             <Button.Template>
                 <ControlTemplate>
-                    <Image Source="../Resources/UI/Button_delen.png" Width="77" Height="23"/>
+                    <Image Source="../Resources/UI/Button_uploaden.png" Width="127" Height="23"/>
                 </ControlTemplate>
             </Button.Template>
         </Button>
 
-        <Button x:Name="ButtonOver"  RenderTransformOrigin="0.5,0.5"  Margin="320,650,200,38">
+        <Button x:Name="ButtonOver"  RenderTransformOrigin="0.5,0.5"  Margin="110,655,410,33" Click="ButtonOver_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -40,7 +40,24 @@
 
             <Button.Template>
                 <ControlTemplate>
-                    <Image Source="../Resources/UI/Button_nieuw.png" Width="191" Height="23"/>
+                    <Image Source="../Resources/UI/Button_ander.png" Width="191" Height="23"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button x:Name="ButtonRestart"  RenderTransformOrigin="0.5,0.5"  Margin="480,655,34,33" Click="ButtonRestart_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="../Resources/UI/Button_opnieuwCollage.png" Width="190" Height="23"/>
                 </ControlTemplate>
             </Button.Template>
         </Button>

@@ -129,19 +129,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\UI\Backgrounds\Background_collage.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\temp\temp.png" />
+    <Resource Include="Resources\UI\Backgrounds\Background_collage.png" />
     <Resource Include="Resources\UI\Backgrounds\Background_photo.png" />
     <Resource Include="Resources\UI\Backgrounds\Background_start.png" />
+    <Resource Include="Resources\UI\Button_delen.png" />
     <Resource Include="Resources\UI\Button_makePhoto.png" />
-    <Resource Include="Resources\UI\Button_start.png" />
-    <Resource Include="Resources\UI\PNG\flower.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="Resources\UI\Button_nieuw.png" />
     <Resource Include="Resources\UI\Button_opnieuw.png" />
+    <Resource Include="Resources\UI\Button_start.png" />
     <Resource Include="Resources\UI\Button_verder.png" />
+    <Resource Include="Resources\UI\PNG\flower.png" />
     <Resource Include="Resources\UI\Text_tevreden.png" />
   </ItemGroup>
   <ItemGroup>
@@ -160,10 +158,9 @@
     <Resource Include="Resources\Collages\IMG_0001.jpeg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\UI\Button_delen.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\UI\Button_nieuw.png" />
+    <Resource Include="Resources\UI\Button_ander.png" />
+    <Resource Include="Resources\UI\Button_opnieuwCollage.png" />
+    <Resource Include="Resources\UI\Button_uploaden.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

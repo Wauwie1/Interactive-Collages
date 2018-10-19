@@ -72,7 +72,9 @@ namespace InteractiveCollages
             {
                 try
                 {
+                    File.SetAttributes(@"../../Resources/temp/temp.png", FileAttributes.Normal);
                     File.Delete(@"../../Resources/temp/temp.png");
+                    File.SetAttributes(@"../../Resources/temp/temp.png", FileAttributes.Normal);
                 }
                 catch (IOException e)
                 {
@@ -83,6 +85,7 @@ namespace InteractiveCollages
             }
 
             photoBitmap.Save(@"../../Resources/temp/temp.png", System.Drawing.Imaging.ImageFormat.Png);
+            photoBitmap.Dispose();
 
 
 

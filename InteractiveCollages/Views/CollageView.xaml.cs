@@ -22,6 +22,7 @@ namespace InteractiveCollages.Views
     /// </summary>
     public partial class CollageView : UserControl
     {
+        
         private MainWindow main;
         public CollageView(MainWindow main)
         {
@@ -39,16 +40,49 @@ namespace InteractiveCollages.Views
         private void RandomCollage()
         {
             //Refresh user photo
-            
-            string path =  Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            var image = new BitmapImage(new Uri(path + "\\Resources\\temp\\temp.png"));
-            //WriteableBitmap userWriteableBitmap = Photo.AsWriteableBitmap(userBitmap);
-            ImageUser.Source = image;
+            try
+            {
+                string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+
+                var bitmapImage = new BitmapImage();
+                var stream = File.OpenRead(path + "\\Resources\\temp\\temp.png");
+
+                bitmapImage.BeginInit();
+                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                bitmapImage.StreamSource = stream;
+                bitmapImage.EndInit();
+                stream.Close();
+                stream.Dispose();
+
+
+
+
+
+                ImageUser.Source = bitmapImage;
+              
+            }
+            catch (NullReferenceException e)
+            {
+                const string error = "Could not find user photo. \n";
+                Console.WriteLine(error, e.Source);
+                MessageBox.Show("Could not find user photo. \n", e.Source);
+            }
 
             //Pick random collage
             string randomPath = CollageMaker.GetRandomCollage();
             Bitmap bitmap = new Bitmap(randomPath);
             ImageCollage.Source = Photo.AsBitmapImage(bitmap);
+            bitmap.Dispose();
+        }
+
+        private void ButtonOver_Click(object sender, RoutedEventArgs e)
+        {
+            RandomCollage();
+        }
+
+        private void ButtonRestart_Click(object sender, RoutedEventArgs e)
+        {
+            new ViewController(main).GoToView(new StartView(main));
         }
     }
 }
