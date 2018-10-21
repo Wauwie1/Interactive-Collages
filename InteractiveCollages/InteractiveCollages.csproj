@@ -73,6 +73,9 @@
     <Compile Include="Views\PhotoView.xaml.cs">
       <DependentUpon>PhotoView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ShareView.xaml.cs">
+      <DependentUpon>ShareView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\StartView.xaml.cs">
       <DependentUpon>StartView.xaml</DependentUpon>
     </Compile>
@@ -93,6 +96,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PhotoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShareView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -161,6 +168,12 @@
     <Resource Include="Resources\UI\Button_ander.png" />
     <Resource Include="Resources\UI\Button_opnieuwCollage.png" />
     <Resource Include="Resources\UI\Button_uploaden.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UI\Backgrounds\Background_share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UI\Button_opnieuw2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

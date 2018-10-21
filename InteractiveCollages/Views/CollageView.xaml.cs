@@ -34,7 +34,7 @@ namespace InteractiveCollages.Views
 
         private void ButtonShare_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            main.DataContext = new ShareView(main);
         }
 
         private void RandomCollage()
@@ -63,9 +63,9 @@ namespace InteractiveCollages.Views
             }
             catch (NullReferenceException e)
             {
-                const string error = "Could not find user photo. \n";
-                Console.WriteLine(error, e.Source);
-                MessageBox.Show("Could not find user photo. \n", e.Source);
+                const string error = "Could not load user photo. \n";
+                Console.WriteLine(error + e.Source);
+                MessageBox.Show(error + e.Source);
             }
 
             //Pick random collage
