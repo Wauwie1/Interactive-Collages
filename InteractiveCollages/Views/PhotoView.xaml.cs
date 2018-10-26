@@ -45,6 +45,8 @@ namespace InteractiveCollages.Views
 
             CreateVideoSourcePlayer();
 
+            new CameraSettings(videoSourcePlayer).Show();
+
         }
 
         private void CreateVideoSourcePlayer()
