@@ -33,16 +33,6 @@ namespace InteractiveCollages
 
         private WebCameraControl webCameraControl;
 
-        public WebCameraControl WebCameraControl
-        {
-            get { return webCameraControl; }
-        }
-
-        public BitmapImage TakenPhoto
-        {
-            get { return takenPhoto; }
-        }
-
         //Constructor
         public Camera(WebCameraControl webcam)
         {
