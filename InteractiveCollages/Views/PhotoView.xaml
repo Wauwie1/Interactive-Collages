@@ -6,12 +6,13 @@
              xmlns:local="clr-namespace:InteractiveCollages.Views"
              xmlns:wpf="clr-namespace:WebEye.Controls.Wpf;assembly=WebEye.Controls.Wpf.WebCameraControl"
              mc:Ignorable="d" 
-             d:DesignHeight="720" d:DesignWidth="720" HorizontalAlignment="Center" VerticalAlignment="Center" Loaded="UserControl_Loaded">
+             d:DesignHeight="720" d:DesignWidth="720" HorizontalAlignment="Center" VerticalAlignment="Center">
     <Grid>
+
+
 
         <Image Source="../Resources/UI/Backgrounds/Background_photo.png" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
         <!--Controls-->
-        <wpf:WebCameraControl x:Name="webCameraControl"  Loaded="webCameraControl_Loaded" MaxWidth="400"  Width="400" MaxHeight="300" Height="300" RenderTransformOrigin="-0.251,-0.045"/>
         <Image x:Name="Image_preview" Width="400" Height="400" Opacity="100" />
         <Rectangle Fill="#FFEC677A" Width="400" Height="2" Margin="0, 299, 0, 0" />
         <Image Source="../Resources/UI/PNG/flower.png" Margin="58,56,452,515" RenderTransformOrigin="0.5,0.5">
@@ -84,7 +85,22 @@
             </Button.Style>
 
         </Button>
-        <Button x:Name="test" Content="Button" HorizontalAlignment="Left" Margin="395,10,0,0" VerticalAlignment="Top" Width="75" Click="test_Click"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="16*"/>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="16*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="210*"/>
+                <RowDefinition Height="300*"/>
+                <RowDefinition Height="210*"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="GridVideo" Grid.Row="1" Grid.Column="1">
+
+            </Grid>
+        </Grid>
     </Grid>
+
 
 </UserControl>

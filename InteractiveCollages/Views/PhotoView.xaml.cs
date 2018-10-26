@@ -13,6 +13,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
+using AForge.Controls;
+using AForge.Video;
+using AForge.Video.DirectShow;
+using UserControl = System.Windows.Controls.UserControl;
+
 
 namespace InteractiveCollages.Views
 {
@@ -21,6 +27,7 @@ namespace InteractiveCollages.Views
     /// </summary>
     public partial class PhotoView : UserControl
     {
+        private VideoSourcePlayer videoSourcePlayer;
         private CameraSettings cameraSettings { get; set; }
         private MainWindow main { get; set; }
         private Camera camera { get; set; }
@@ -32,10 +39,31 @@ namespace InteractiveCollages.Views
             InitializeComponent();
             this.main = main;
             inPreview = false;
-            camera = new Camera(webCameraControl);
+           //Todo: camera = new Camera(webCameraControl);
             greenRemover = new GreenRemover();
-            
 
+
+            CreateVideoSourcePlayer();
+
+        }
+
+        private void CreateVideoSourcePlayer()
+        {
+            // Create the interop host control.
+            System.Windows.Forms.Integration.WindowsFormsHost host =
+                new System.Windows.Forms.Integration.WindowsFormsHost();
+
+            // Create the control.
+            videoSourcePlayer = new VideoSourcePlayer();
+            videoSourcePlayer.Width = 400;
+            videoSourcePlayer.Height = 300;
+
+            // Assign the control as the host control's child.
+            host.Child = videoSourcePlayer;
+
+            // Add the interop host control to the Grid
+            // control's collection of child controls.
+            this.GridVideo.Children.Add(host);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -43,10 +71,6 @@ namespace InteractiveCollages.Views
             new ViewController(main).GoToView(new StartView(main));
         }
 
-        private void webCameraControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            camera.ActivateCamera();
-        }
 
         private void Button_capture_Click(object sender, RoutedEventArgs e)
         {
@@ -104,27 +128,5 @@ namespace InteractiveCollages.Views
             main.DataContext = new CollageView(main);
         }
 
-
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            var window = Window.GetWindow(this);
-            window.KeyDown += Key_F8_Pressed;
-        }
-
-        private void Key_F8_Pressed(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.F8)
-            {
-                cameraSettings = new CameraSettings();
-                cameraSettings.Show();
-            }
-        }
-
-        private void test_Click(object sender, RoutedEventArgs e)
-        {
-            webCameraControl.UpdateLayout();
-            object x = webCameraControl.Content;
-            webCameraControl.IsEnabled = true;
-        }
     }
 }
