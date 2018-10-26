@@ -21,16 +21,20 @@ namespace InteractiveCollages.Views
     /// </summary>
     public partial class PhotoView : UserControl
     {
+        private CameraSettings cameraSettings { get; set; }
         private MainWindow main { get; set; }
         private Camera camera { get; set; }
 
         private bool inPreview { get; set; }
+        private GreenRemover greenRemover { get; }
         public PhotoView(MainWindow main)
         {
             InitializeComponent();
             this.main = main;
             inPreview = false;
             camera = new Camera(webCameraControl);
+            greenRemover = new GreenRemover();
+            
 
         }
 
@@ -54,6 +58,7 @@ namespace InteractiveCollages.Views
             else if (inPreview)
             {
                 ResetCamera();
+
             }
             
         }
@@ -67,7 +72,7 @@ namespace InteractiveCollages.Views
             Bitmap preview = new Bitmap(@"../../Resources/temp/temp.png");
             preview.Dispose();
             //Image_preview.Source = Photo.AsBitmapImage(preview);
-            Image_preview.Source = GreenRemover.RemoveGreen();
+            Image_preview.Source = greenRemover.RemoveGreen();
             
 
             //Changes button
@@ -95,7 +100,31 @@ namespace InteractiveCollages.Views
 
         private void ButtonContinue_Click(object sender, RoutedEventArgs e)
         {
+            this.Focusable = false;
             main.DataContext = new CollageView(main);
+        }
+
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            var window = Window.GetWindow(this);
+            window.KeyDown += Key_F8_Pressed;
+        }
+
+        private void Key_F8_Pressed(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F8)
+            {
+                cameraSettings = new CameraSettings();
+                cameraSettings.Show();
+            }
+        }
+
+        private void test_Click(object sender, RoutedEventArgs e)
+        {
+            webCameraControl.UpdateLayout();
+            object x = webCameraControl.Content;
+            webCameraControl.IsEnabled = true;
         }
     }
 }

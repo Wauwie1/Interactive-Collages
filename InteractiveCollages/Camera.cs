@@ -49,6 +49,7 @@ namespace InteractiveCollages
             webCameraControl = webcam;
 
             //Sets timer
+           
             
         }
 

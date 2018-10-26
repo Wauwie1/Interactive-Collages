@@ -7,12 +7,12 @@ using Color = System.Windows.Media.Color;
 
 namespace InteractiveCollages
 {
-    public static class GreenRemover
+    public class GreenRemover
     {
-        private static int minEffect = 8;
-        private static int maxEffect = 42;
+        private int minEffect = 8;
+        private int maxEffect = 42;
 
-        public static WriteableBitmap RemoveGreen()
+        public WriteableBitmap RemoveGreen()
         {
             //var uri = new Uri(@"../../Resources/temp/temp.png");
             Bitmap bitmap = new Bitmap(@"../../Resources/temp/temp.png");
