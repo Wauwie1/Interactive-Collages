@@ -38,18 +38,21 @@ namespace InteractiveCollages.Views
         private void ButtonShare_OnClick(object sender, RoutedEventArgs e)
         {
             //Create a new bitmap.
-            var bmpScreenshot = new Bitmap(Screen.PrimaryScreen.Bounds.Width,
-                Screen.PrimaryScreen.Bounds.Height);
+            var bmpScreenshot = new Bitmap(550,
+                550);
 
             // Create a graphics object from the bitmap.
             var gfxScreenshot = Graphics.FromImage(bmpScreenshot);
 
+
+                //647,250
+                //390, 262
             // Take the screenshot from the upper left corner to the right bottom corner.
-            gfxScreenshot.CopyFromScreen(647,
-                250,
+            gfxScreenshot.CopyFromScreen(364,
+                203,
                 0,
                 0,
-                new System.Drawing.Size(625, 625),
+                bmpScreenshot.Size,
                 CopyPixelOperation.SourceCopy);
 
             Guid filename = Guid.NewGuid();

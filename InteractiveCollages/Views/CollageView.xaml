@@ -8,10 +8,10 @@
              d:DesignHeight="720" d:DesignWidth="720">
     <Grid >
         <Image Source="../Resources/UI/Backgrounds/Background_collage.png" Grid.RowSpan="2" Grid.ColumnSpan="2" Height="720"/>
-        <Image x:Name="ImageCollage" Source="../Resources/Collages/IMG_0001.jpeg" Width="500" Height="500"/>
-        <Image x:Name="ImageUser" Source="../Resources/temp/temp.png" Width="350" Height="350" Margin="185,305,185,65"/>
+        <Image x:Name="ImageCollage" Source="../Resources/Collages/IMG_0001.jpeg" Width="550" Height="550" Margin="84,51,86,119"/>
+        <Image x:Name="ImageUser" Source="../Resources/temp/temp.png" Height="350" Margin="128,251,126,119"/>
 
-        <Button x:Name="ButtonShare" Click="ButtonShare_OnClick" RenderTransformOrigin="0.5,0.5" Width="131"  Margin="310,655,279,33">
+        <Button x:Name="ButtonShare" Click="ButtonShare_OnClick" RenderTransformOrigin="0.5,0.5" Width="131"  Margin="280,647,309,41" Cursor="Hand">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -28,7 +28,7 @@
             </Button.Template>
         </Button>
 
-        <Button x:Name="ButtonOver"  RenderTransformOrigin="0.5,0.5"  Margin="110,655,410,33" Click="ButtonOver_Click">
+        <Button x:Name="ButtonOver"  RenderTransformOrigin="0.5,0.5"  Margin="80,647,440,41" Click="ButtonOver_Click" Cursor="Hand">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -45,7 +45,7 @@
             </Button.Template>
         </Button>
 
-        <Button x:Name="ButtonRestart"  RenderTransformOrigin="0.5,0.5"  Margin="480,655,34,33" Click="ButtonRestart_Click">
+        <Button x:Name="ButtonRestart"  RenderTransformOrigin="0.5,0.5"  Margin="462,647,52,41" Click="ButtonRestart_Click" Cursor="Hand">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
