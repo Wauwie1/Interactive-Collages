@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:InteractiveCollages"
         xmlns:views="clr-namespace:InteractiveCollages.Views"
         mc:Ignorable="d"
-        Title="Interactive" Height="720" Width="1280"  Background="Black" WindowState="Maximized" WindowStyle="None" ResizeMode="NoResize"  >
+        Title="Interactive" Height="720" Width="1280"  Background="Black" WindowState="Maximized" WindowStyle="None" ResizeMode="NoResize" KeyDown="Window_KeyDown"  >
     <Grid>
         
         <!--Element for displaying views-->

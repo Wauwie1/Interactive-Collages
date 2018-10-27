@@ -1,23 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Forms;
 using AForge.Controls;
 using AForge.Video;
 using AForge.Video.DirectShow;
@@ -36,7 +22,6 @@ namespace InteractiveCollages.Views
         private VideoCaptureDevice videoDevice;
         private VideoCapabilities[] videoCapabilities;
         private VideoCapabilities[] snapshotCapabilities;
-        private CameraSettings cameraSettings { get; set; }
         private MainWindow main { get; set; }
 
         private bool inPreview { get; set; }
@@ -50,14 +35,10 @@ namespace InteractiveCollages.Views
             InitializeComponent();
             this.main = main;
             inPreview = false;
-           //Todo: camera = new Camera(webCameraControl);
             greenRemover = new GreenRemover();
-
-            
-            
-
-            //new CameraSettings(videoSourcePlayer).Show();
-
+            camIndex = main.VideoIndex;
+            greenRemover.minEffect = main.minGreen;
+            greenRemover.maxEffect = main.maxGreen;
         }
 
 
