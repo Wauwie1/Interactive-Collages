@@ -6,6 +6,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -196,8 +197,7 @@ namespace InteractiveCollages.Views
 
         private void ResetCamera()
         {
-            //Resets the camera
-            camera.Reset();
+            
 
             //Disables and hides the preview
             Image_preview.Source = null;
@@ -207,6 +207,10 @@ namespace InteractiveCollages.Views
             ButtonCapture.Content = new BitmapImage(new Uri(@"../../Resources/UI/Button_makePhoto.png", UriKind.Relative));
             ImageTevreden.Visibility = Visibility.Hidden;
             ButtonContinue.Visibility = Visibility.Hidden;
+
+            
+            Disconnect();
+            main.DataContext = new PhotoView(main);
         }
 
         private void ButtonContinue_Click(object sender, RoutedEventArgs e)

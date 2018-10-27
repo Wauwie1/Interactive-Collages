@@ -13,7 +13,7 @@
 
         <Image Source="../Resources/UI/Backgrounds/Background_photo.png" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
         <!--Controls-->
-        <Image x:Name="Image_preview" Width="400" Height="400" Opacity="100" Margin="320,320,0,0" />
+        <Image x:Name="Image_preview" Width="400" Height="400" Opacity="100"  />
         <Rectangle Fill="#FFEC677A" Width="400" Height="2" Margin="0, 299, 0, 0" />
         <Image Source="../Resources/UI/PNG/flower.png" Margin="58,56,452,515" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
