@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using InteractiveCollages.Views;
+using System.Windows.Forms;
+using Application = System.Windows.Forms.Application;
 
 namespace InteractiveCollages
 {
@@ -25,8 +27,10 @@ namespace InteractiveCollages
         {
             InitializeComponent();
             new ViewController(this).GoToView(new StartView(this));
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
-          
+
         }
 
     }
