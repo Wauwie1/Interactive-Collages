@@ -7,6 +7,31 @@
              xmlns:wpf="clr-namespace:WebEye.Controls.Wpf;assembly=WebEye.Controls.Wpf.WebCameraControl"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="720" HorizontalAlignment="Center" VerticalAlignment="Center" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <Storyboard x:Key="Button_float" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ButtonCapture">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.0" Value="-3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.0" Value="3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4.0" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ButtonContinue">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.0" Value="3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.0" Value="-3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4.0" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Button_float}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
+
+
     <Grid>
 
 
@@ -26,7 +51,7 @@
             </Image.RenderTransform>
         </Image>
         <Image x:Name="ImageTevreden" Source="../Resources/UI/Text_tevreden.png" Width="341" Height="92" Visibility="Hidden" Margin="242,44,136,584"/>
-        <Button x:Name="ButtonCapture" Click="Button_capture_Click" Height="92" Width="360" RenderTransformOrigin="0.5,0.5" Margin="94,595,117,33">
+        <Button x:Name="ButtonCapture" Click="Button_capture_Click" Height="92" Width="360" RenderTransformOrigin="0.5,0.5" Margin="94,595,117,33" Cursor="Hand">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -56,7 +81,7 @@
 
         </Button>
 
-        <Button x:Name="ButtonContinue" Visibility="Hidden"  Height="92" RenderTransformOrigin="0.5,0.5" Margin="150,595,450,33" Click="ButtonContinue_Click">
+        <Button x:Name="ButtonContinue" Visibility="Hidden"  Height="92" RenderTransformOrigin="0.5,0.5" Margin="150,595,450,33" Click="ButtonContinue_Click" Cursor="Hand" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

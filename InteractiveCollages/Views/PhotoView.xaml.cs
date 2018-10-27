@@ -38,7 +38,6 @@ namespace InteractiveCollages.Views
         private VideoCapabilities[] snapshotCapabilities;
         private CameraSettings cameraSettings { get; set; }
         private MainWindow main { get; set; }
-        private Camera camera { get; set; }
 
         private bool inPreview { get; set; }
         private bool hasTakenPic = false;
