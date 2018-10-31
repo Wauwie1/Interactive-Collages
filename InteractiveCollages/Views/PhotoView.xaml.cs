@@ -77,12 +77,7 @@ namespace InteractiveCollages.Views
 
                 dispatcherTimer.Stop();
 
-                while (!hasTakenPic)
-                {
-                    CaptureFrame();
-                }
-
-               
+                while (!hasTakenPic) CaptureFrame();
             }
         }
 
@@ -151,9 +146,6 @@ namespace InteractiveCollages.Views
             {
                 ResetCamera();
             }
-
-           
-            
         }
 
         private void CaptureFrame()
