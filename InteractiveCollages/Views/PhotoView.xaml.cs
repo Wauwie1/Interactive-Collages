@@ -77,10 +77,12 @@ namespace InteractiveCollages.Views
 
                 dispatcherTimer.Stop();
 
-                if (!inPreview)
-                    while (!hasTakenPic)
-                        CaptureFrame();
-                else if (inPreview) ResetCamera();
+                while (!hasTakenPic)
+                {
+                    CaptureFrame();
+                }
+
+               
             }
         }
 
@@ -143,9 +145,15 @@ namespace InteractiveCollages.Views
             {
                 ButtonCapture.Visibility = Visibility.Hidden;
                 ImageCountdown3.Visibility = Visibility.Visible;
+                dispatcherTimer.Start();
+            }
+            else if (inPreview)
+            {
+                ResetCamera();
             }
 
-            dispatcherTimer.Start();
+           
+            
         }
 
         private void CaptureFrame()
@@ -207,6 +215,7 @@ namespace InteractiveCollages.Views
 
         private void ResetCamera()
         {
+            Disconnect();
             main.DataContext = new PhotoView(main);
         }
 
