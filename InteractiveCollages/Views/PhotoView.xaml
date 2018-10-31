@@ -50,6 +50,9 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
+        <Image x:Name="ImageCountdown3" Source="../Resources/UI/Count_3.png" Width="50" Height="90" Margin="343,32,327,598" Visibility="Hidden"/>
+        <Image x:Name="ImageCountdown2" Source="../Resources/UI/Count_2.png" Width="50" Height="90" Margin="343,32,327,598" Visibility="Hidden"/>
+        <Image x:Name="ImageCountdown1" Source="../Resources/UI/Count_1.png" Width="50" Height="90" Margin="343,32,327,598" Visibility="Hidden"/>
         <Image x:Name="ImageTevreden" Source="../Resources/UI/Text_tevreden.png" Width="341" Height="92" Visibility="Hidden" Margin="242,44,136,584"/>
         <Button x:Name="ButtonCapture" Click="Button_capture_Click" Height="92" Width="360" RenderTransformOrigin="0.5,0.5" Margin="94,595,117,33" Cursor="Hand">
             <Button.RenderTransform>
@@ -124,7 +127,9 @@
             <Grid x:Name="GridVideo" Grid.Row="1" Grid.Column="1">
 
             </Grid>
+           
         </Grid>
+
     </Grid>
 
 

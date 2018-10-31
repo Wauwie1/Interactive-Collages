@@ -228,5 +228,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UI\Count_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UI\Count_1.png" />
+    <Resource Include="Resources\UI\Count_2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

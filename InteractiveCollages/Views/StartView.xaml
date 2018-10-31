@@ -25,19 +25,11 @@
     </UserControl.Triggers>
     <Grid>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1.7*" />
-            <RowDefinition Height="0.5*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="160px"/>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
 
 
         <Image Source="../Resources/UI/Backgrounds/Background_start.png" Grid.RowSpan="2" Grid.ColumnSpan="2"></Image>
         <!--Controls-->
-        <Button x:Name="ButtonStart" Click="Button_start_Click" RenderTransformOrigin="0.5,0.5" Width="131" Height="46" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,24,0,0" Cursor="Hand">
+        <Button x:Name="ButtonStart" Click="Button_start_Click" RenderTransformOrigin="0.5,0.5" Width="131" Height="46" Margin="162,92,427,582" Cursor="Hand">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
