@@ -9,8 +9,8 @@ namespace InteractiveCollages
 {
     public class GreenRemover
     {
-        private int minEffect = 8;
-        private int maxEffect = 42;
+        public int minEffect = 8;
+        public int maxEffect = 42;
 
         public WriteableBitmap RemoveGreen()
         {

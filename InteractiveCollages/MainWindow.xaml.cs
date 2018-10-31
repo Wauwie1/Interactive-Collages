@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using InteractiveCollages.Views;
 using System.Windows.Forms;
 using Application = System.Windows.Forms.Application;
+using MessageBox = System.Windows.MessageBox;
 
 namespace InteractiveCollages
 {
@@ -23,6 +24,9 @@ namespace InteractiveCollages
     /// </summary>
     public partial class MainWindow : Window
     {
+        public int VideoIndex { get; set; }
+        public int minGreen { get; set; }
+        public int maxGreen { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -30,8 +34,17 @@ namespace InteractiveCollages
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            minGreen = 8;
+            maxGreen = 42;
 
         }
 
+        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (Key.F8 == e.Key)
+            {
+                new CameraSettings(this).Show();
+            }
+        }
     }
 }
