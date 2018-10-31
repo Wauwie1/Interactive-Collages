@@ -32,17 +32,14 @@ namespace InteractiveCollages.Views
             InitializeComponent();
             this.main = main;
             inPreview = false;
-            greenRemover = new GreenRemover();
             camIndex = main.VideoIndex;
-            greenRemover.minEffect = main.minGreen;
-            greenRemover.maxEffect = main.maxGreen;
+
             CreateTimer();
         }
 
         private MainWindow main { get; }
 
         private bool inPreview { get; set; }
-        private GreenRemover greenRemover { get; }
         private DispatcherTimer dispatcherTimer { get; set; }
 
         private void CreateTimer()
@@ -124,17 +121,8 @@ namespace InteractiveCollages.Views
             }
         }
 
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-             main.DataContext = new StartView(main);
-        }
-
-
         private void Button_capture_Click(object sender, RoutedEventArgs e)
         {
-            greenRemover.minEffect = main.minGreen;
-            greenRemover.maxEffect = main.maxGreen;
 
             if (!inPreview)
             {
@@ -162,23 +150,11 @@ namespace InteractiveCollages.Views
 
         private void Capture()
         {
-            //Takes Photo
-
-            //camera.Capture();
-
-            //Freezes the camera and show preview of photo
-
-            // Disconnect();
-            //Shows taken picture
-            var preview = new Bitmap(@"../../Resources/temp/temp.png");
-            preview.Dispose();
-            //Image_preview.Source = Photo.AsBitmapImage(preview);
-
             var ready = UserControl.Dispatcher.CheckAccess();
 
             if (ready)
             {
-                Image_preview.Source = greenRemover.RemoveGreen();
+                Image_preview.Source = main.GreenRemover.RemoveGreen();
                 ButtonCapture.Content =
                     new BitmapImage(new Uri(@"../../Resources/UI/Button_opnieuw.png", UriKind.Relative));
                 ImageTevreden.Visibility = Visibility.Visible;
@@ -188,7 +164,7 @@ namespace InteractiveCollages.Views
             }
             else
             {
-                Image_preview.Dispatcher.Invoke(() => { Image_preview.Source = greenRemover.RemoveGreen(); });
+                Image_preview.Dispatcher.Invoke(() => { Image_preview.Source = main.GreenRemover.RemoveGreen(); });
                 ButtonCapture.Dispatcher.Invoke(() =>
                 {
                     ButtonCapture.Content =

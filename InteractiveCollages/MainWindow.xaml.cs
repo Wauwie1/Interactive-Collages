@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Threading;
 using InteractiveCollages.Views;
 using Application = System.Windows.Forms.Application;
 
@@ -25,9 +27,19 @@ namespace InteractiveCollages
         public int minGreen { get; set; }
         public int maxGreen { get; set; }
 
+        public GreenRemover GreenRemover { get; set; }
+
+        public DispatcherTimer DispatcherTimer { get; set; }
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (Key.F8 == e.Key) new CameraSettings(this).Show();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            GreenRemover = new GreenRemover();
+            GreenRemover.minEffect = minGreen;
+            GreenRemover.maxEffect = maxGreen;
         }
     }
 }

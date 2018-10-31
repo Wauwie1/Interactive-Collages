@@ -33,8 +33,8 @@ namespace InteractiveCollages
         {
             try
             {
-                main.minGreen = Convert.ToInt32(TextBox_Min.Text);
-                main.maxGreen = Convert.ToInt32(TextBox_Max.Text);
+                main.GreenRemover.minEffect = Convert.ToInt32(TextBox_Min.Text);
+                main.GreenRemover.maxEffect = Convert.ToInt32(TextBox_Max.Text);
                 MessageBox.Show("Greenscreen properties set.");
             }
             catch (Exception ex)
