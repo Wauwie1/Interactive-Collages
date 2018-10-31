@@ -18,7 +18,7 @@ namespace InteractiveCollages.Views
 
         private void Button_start_Click(object sender, RoutedEventArgs e)
         {
-            new ViewController(main).GoToView(new PhotoView(main));
+            main.DataContext = new PhotoView(main);
         }
     }
 }

@@ -91,7 +91,7 @@ namespace InteractiveCollages.Views
 
         private void ButtonRestart_Click(object sender, RoutedEventArgs e)
         {
-            new ViewController(main).GoToView(new StartView(main));
+            main.DataContext = new StartView(main);
         }
     }
 }

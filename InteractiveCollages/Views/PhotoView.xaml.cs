@@ -127,7 +127,7 @@ namespace InteractiveCollages.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            new ViewController(main).GoToView(new StartView(main));
+             main.DataContext = new StartView(main);
         }
 
 

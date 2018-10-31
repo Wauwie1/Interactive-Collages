@@ -103,7 +103,6 @@
     <Compile Include="CollageMaker.cs" />
     <Compile Include="GreenRemover.cs" />
     <Compile Include="Photo.cs" />
-    <Compile Include="ViewController.cs" />
     <Compile Include="Views\CollageView.xaml.cs">
       <DependentUpon>CollageView.xaml</DependentUpon>
     </Compile>

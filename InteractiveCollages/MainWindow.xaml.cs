@@ -13,7 +13,7 @@ namespace InteractiveCollages
         public MainWindow()
         {
             InitializeComponent();
-            new ViewController(this).GoToView(new StartView(this));
+            this.DataContext = new StartView(this);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
