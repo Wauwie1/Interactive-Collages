@@ -9,7 +9,7 @@
     <Grid >
         <Image Source="../Resources/UI/Backgrounds/Background_collage.png" Grid.RowSpan="2" Grid.ColumnSpan="2" Height="720"/>
         <Image x:Name="ImageCollage" Source="../Resources/Collages/IMG_0001.jpeg" Width="550" Height="550" Margin="84,51,86,119"/>
-        <Image x:Name="ImageUser" Source="../Resources/temp/temp.png" Height="350" Margin="128,251,126,119"/>
+        <Image x:Name="ImageUser" Source="../Resources/temp/temp.png" Margin="84,189,106,119"/>
 
         <Button x:Name="ButtonShare" Click="ButtonShare_OnClick" RenderTransformOrigin="0.5,0.5" Width="131"  Margin="280,647,309,41" Cursor="Hand">
             <Button.RenderTransform>

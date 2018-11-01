@@ -29,7 +29,8 @@ namespace InteractiveCollages
 
         public GreenRemover GreenRemover { get; set; }
 
-        public DispatcherTimer DispatcherTimer { get; set; }
+        public CollageMaker CollageMaker { get; set; }
+
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (Key.F8 == e.Key) new CameraSettings(this).Show();
@@ -40,6 +41,8 @@ namespace InteractiveCollages
             GreenRemover = new GreenRemover();
             GreenRemover.minEffect = minGreen;
             GreenRemover.maxEffect = maxGreen;
+
+            CollageMaker = new CollageMaker();
         }
     }
 }

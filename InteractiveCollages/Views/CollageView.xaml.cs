@@ -78,7 +78,7 @@ namespace InteractiveCollages.Views
             }
 
             //Pick random collage
-            var randomPath = CollageMaker.GetRandomCollage();
+            var randomPath = main.CollageMaker.GetRandomCollage();
             var bitmap = new Bitmap(randomPath);
             ImageCollage.Source = Photo.AsBitmapImage(bitmap);
             bitmap.Dispose();

@@ -20,7 +20,6 @@ namespace InteractiveCollages.Views
     {
         private readonly int camIndex = 1;
         private int countdown = 3;
-        private bool hasTakenPic;
         private VideoCapabilities[] snapshotCapabilities;
         private VideoCapabilities[] videoCapabilities;
         private VideoCaptureDevice videoDevice;
@@ -74,8 +73,36 @@ namespace InteractiveCollages.Views
 
                 dispatcherTimer.Stop();
 
-                while (!hasTakenPic) CaptureFrame();
+                //CaptureFrame();
+                TakePicture();
             }
+        }
+
+        private void TakePicture()
+        {
+            //Create a new bitmap.
+            var bmpScreenshot = new Bitmap(496,
+                372);
+
+            // Create a graphics object from the bitmap.
+            var gfxScreenshot = Graphics.FromImage(bmpScreenshot);
+
+
+            //647,250
+            //390, 262
+            // Take the screenshot from the upper left corner to the right bottom corner.
+            gfxScreenshot.CopyFromScreen(393,
+                326,
+                0,
+                0,
+                bmpScreenshot.Size,
+                CopyPixelOperation.SourceCopy);
+
+            if (File.Exists(@"../../Resources/temp/temp.png")) File.Delete(@"../../Resources/temp/temp.png");
+            // Save the screenshot to the specified path that the user has chosen.
+            bmpScreenshot.Save(@"../../Resources/temp/temp.png", ImageFormat.Png);
+            Capture();
+            //main.DataContext = new ShareView(main);
         }
 
         private void CreateVideoSourcePlayer()
@@ -107,7 +134,7 @@ namespace InteractiveCollages.Views
             if (videoDevice != null)
             {
                 if (videoCapabilities != null && videoCapabilities.Length != 0)
-                    videoDevice.VideoResolution = videoCapabilities[camIndex];
+                    videoDevice.VideoResolution = videoCapabilities[1];
 
                 if (snapshotCapabilities != null && snapshotCapabilities.Length != 0)
                 {
@@ -126,6 +153,7 @@ namespace InteractiveCollages.Views
 
             if (!inPreview)
             {
+                
                 ButtonCapture.Visibility = Visibility.Hidden;
                 ImageCountdown3.Visibility = Visibility.Visible;
                 dispatcherTimer.Start();
@@ -210,11 +238,10 @@ namespace InteractiveCollages.Views
         private void videoDevice_SnapshotFrame(object sender, NewFrameEventArgs eventArgs)
         {
             Console.WriteLine(eventArgs.Frame.Size);
-            if (File.Exists(@"../../Resources/temp/temp.png")) File.Delete(@"../../Resources/temp/temp.png");
+            
             var test = (Bitmap) eventArgs.Frame.Clone();
             test.Save(@"../../Resources/temp/temp.png", ImageFormat.Png);
             test.Dispose();
-            hasTakenPic = true;
             Capture();
         }
 

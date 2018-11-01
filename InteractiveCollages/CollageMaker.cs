@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace InteractiveCollages
 {
-    internal static class CollageMaker
+    public class CollageMaker
     {
-        private static List<string> _collagesPaths;
+        private List<string> _collagesPaths;
 
-        public static string GetRandomCollage()
+        public string GetRandomCollage()
         {
             _collagesPaths = Directory.GetFiles("../../Resources/Collages", "*.*", SearchOption.TopDirectoryOnly)
                 .ToList();
