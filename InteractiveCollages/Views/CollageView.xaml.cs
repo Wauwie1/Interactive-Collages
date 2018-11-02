@@ -36,8 +36,8 @@ namespace InteractiveCollages.Views
             //647,250
             //390, 262
             // Take the screenshot from the upper left corner to the right bottom corner.
-            gfxScreenshot.CopyFromScreen(364,
-                203,
+            gfxScreenshot.CopyFromScreen(397,
+                236,
                 0,
                 0,
                 bmpScreenshot.Size,

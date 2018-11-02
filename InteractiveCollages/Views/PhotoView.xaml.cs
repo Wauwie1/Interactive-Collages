@@ -77,7 +77,7 @@ namespace InteractiveCollages.Views
                 TakePicture();
             }
         }
-
+        //3, 25
         private void TakePicture()
         {
             //Create a new bitmap.
